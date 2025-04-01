@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <link rel="icon" type="image/png" href="3.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ซองอั่งเปา</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            width: 90%;
+            max-width: 400px;
+        }
+        .hidden {
+            display: none;
+        }
+        .money {
+            font-size: 2em;
+            color: red;
+            font-weight: bold;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color:rgb(255, 139, 61);
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 100px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        button:hover {
+            background-color:rgb(217, 112, 41);
+        }
+        img {
+            width: 200px;
+            margin-bottom: 10px;
+        }
+        .desc {
+            font-size: 14px;
+            color: gray;
+        }
+        .ol {
+            display: flex;
+            font-size: 14px;
+            color: gray;
+        }
+        .o {
+            width: 0px;
+        }
+
+    </style>
+</head>
+<body>
+        <img class="o" src="1.png" alt="TrueMoney Logo">
+        <div class="container" id="step1">
+        <img src="2.png" alt="TrueMoney Logo">
+        <p><b>จิรายุ ***</b><br>ส่งซองทรูมันนี่ให้คุณ</p>
+        <p class="ol">กรอกเบอร์โทรศัพท์เพื่อรับซอง</p>
+        <input type="tel" id="phoneInput" placeholder="08x-xxx-xxxx">
+        <p class="desc">หากคุณยังไม่มีบัญชีทรูมันนี่ <a href="#">สมัครสมาชิกที่นี่</a></p>
+        <button onclick="showMoney()">รับซองเลย</button>
+    </div>
+    
+    <div class="container hidden" id="step2">
+        <h2>ยินดีด้วย! คุณได้รับ</h2>
+        <p class="money">฿100,000</p>
+        <button onclick="revealTruth()">กดรับเงิน</button>
+    </div>
+    
+    <div class="container hidden" id="step3">
+        <h2>😂 April Fool's Day! 😂</h2>
+        <p>ขอให้โชคดีในปีนี้นะ!</p>
+    </div>
+    
+    <script>
+        function showMoney() {
+            let phone = document.getElementById("phoneInput").value;
+            if (phone.trim() === "") {
+                alert("กรุณากรอกเบอร์โทรศัพท์ของคุณ!");
+                return;
+            }
+            document.getElementById("step1").classList.add("hidden");
+            document.getElementById("step2").classList.remove("hidden");
+        }
+        
+        function revealTruth() {
+            document.getElementById("step2").classList.add("hidden");
+            document.getElementById("step3").classList.remove("hidden");
+        }
+    </script>
+</body>
+</html>
